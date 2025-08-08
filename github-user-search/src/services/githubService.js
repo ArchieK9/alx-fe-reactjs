@@ -1,9 +1,16 @@
 import axios from "axios";
 
-export async function fetchUserData(username) {
-  const token = import.meta.env.VITE_APP_GITHUB_API_KEY;
-  const url = `https://api.github.com/users/${username}`;
+export async function searchUsers({ username, location, minRepos, page = 1 }) {
+  let query = "";
+
+  if (username) query += `${username} in:login `;
+  if (location) query += `location:${location} `;
+  if (minRepos) query += `repos:>=${minRepos} `;
+
+  const url = `https://api.github.com/search/users?q=${encodeURIComponent(
+    query
+  )}&page=${page}&per_page=10`;
 
   const response = await axios.get(url);
-  return response.data;
+  return response.data; // includes 'items' array
 }
