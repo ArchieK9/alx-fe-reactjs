@@ -1,22 +1,27 @@
-import React, { useState } from "react";
-import { searchUsers } from "../services/githubService";
+import React, { useState } from 'react';
+import { fetchUserData } from "../services/githubService";
 
 function Search() {
-  const [username, setUsername] = useState("");
-  const [location, setLocation] = useState("");
-  const [minRepos, setMinRepos] = useState("");
+  const [username, setUsername] = useState('');
+  const [location, setLocation] = useState('');
+  const [minRepos, setMinRepos] = useState('');
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const [page, setPage] = useState(1);
   const [totalCount, setTotalCount] = useState(0);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError("");
+    setError('');
     try {
-      const data = await searchUsers({ username, location, minRepos, page: 1 });
+      const data = await fetchUserData({
+        username,
+        location,
+        minRepos,
+        page: 1,
+      });
       setResults(data.items);
       setTotalCount(data.total_count);
       setPage(1);
@@ -31,13 +36,13 @@ function Search() {
     const nextPage = page + 1;
     setLoading(true);
     try {
-      const data = await searchUsers({
+      const data = await fetchUserData({
         username,
         location,
         minRepos,
         page: nextPage,
       });
-      setResults((prev) => [...prev, ...data.items]);
+      setResults(prev => [...prev, ...data.items]);
       setPage(nextPage);
     } catch (err) {
       setError("Error loading more users");
@@ -48,10 +53,7 @@ function Search() {
 
   return (
     <div className="max-w-2xl mx-auto p-4">
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
-      >
+      <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <h2 className="text-2xl font-bold mb-4">Advanced GitHub User Search</h2>
 
         <div className="mb-4">
@@ -96,16 +98,9 @@ function Search() {
       {error && <p className="text-red-500">{error}</p>}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {results.map((user) => (
-          <div
-            key={user.id}
-            className="bg-white shadow-md rounded p-4 flex items-center space-x-4"
-          >
-            <img
-              src={user.avatar_url}
-              alt={user.login}
-              className="w-16 h-16 rounded-full"
-            />
+        {results.map(user => (
+          <div key={user.id} className="bg-white shadow-md rounded p-4 flex items-center space-x-4">
+            <img src={user.avatar_url} alt={user.login} className="w-16 h-16 rounded-full" />
             <div>
               <h3 className="text-lg font-semibold">{user.login}</h3>
               <a
