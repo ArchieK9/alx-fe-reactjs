@@ -25,7 +25,7 @@ function Search() {
       setResults(data.items);
       setTotalCount(data.total_count);
       setPage(1);
-    } catch (err) {
+    } catch {
       setError("Looks like we can't find matching users");
     } finally {
       setLoading(false);
@@ -44,7 +44,7 @@ function Search() {
       });
       setResults(prev => [...prev, ...data.items]);
       setPage(nextPage);
-    } catch (err) {
+    } catch {
       setError("Error loading more users");
     } finally {
       setLoading(false);
