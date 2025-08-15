@@ -1,12 +1,11 @@
 import './App.css'
+import UserProfile from './components/UserProfile'
 
 function App() {
 
   return (
     <>
-      <h1>
-        Hello World
-      </h1>
+    <UserProfile /> 
     </>
   )
 }
