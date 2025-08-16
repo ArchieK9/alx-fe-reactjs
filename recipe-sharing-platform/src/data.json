@@ -3,12 +3,45 @@
     "id": 1,
     "title": "Spaghetti Carbonara",
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-    "image": "https://leitesculinaria.com/wp-content/uploads/2024/04/spaghetti-carbonara-1200.jpg"
+    "image": "https://leitesculinaria.com/wp-content/uploads/2024/04/spaghetti-carbonara-1200.jpg",
+
+    "ingredients": [
+      "200g spaghetti",
+      "100g bacon",
+      "2 eggs",
+      "50g Parmesan cheese",
+      "Black pepper"
+    ],
+
+    "instructions": [
+      "Cook spaghetti according to package instructions.",
+      "Fry bacon until crispy.",
+      "Whisk eggs and Parmesan together.",
+      "Mix hot pasta with bacon and egg-cheese mixture.",
+      "Serve with black pepper."
+    ]
   },
   {
     "id": 2,
     "title": "Chicken Tikka Masala",
     "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-    "image": "https://www.indianhealthyrecipes.com/wp-content/uploads/2022/06/chicken-tikka-masala.jpg"
+    "image": "https://www.indianhealthyrecipes.com/wp-content/uploads/2022/06/chicken-tikka-masala.jpg",
+
+    "ingredients": [
+      "500g chicken breast",
+      "1 cup yogurt",
+      "2 tbsp tikka masala spice",
+      "1 onion",
+      "1 cup tomato puree",
+      "Cream"
+    ],
+    
+    "instructions": [
+      "Marinate chicken in yogurt and spices.",
+      "Grill or pan-fry the chicken.",
+      "Cook onions and tomato puree into a sauce.",
+      "Add cream and chicken to sauce.",
+      "Simmer and serve with rice."
+    ]
   }
 ]
