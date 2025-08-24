@@ -22,11 +22,14 @@ const RegistrationForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if(!email) return setError("Email is required");
+    if(!username) return setError("Username is required");
+    if(!password) return setError("Password is required");
 
-    if (!username || !email || !password) {
-      setError("All fields are required!");
-      return;
-    }
+    // if (!username || !email || !password) {
+    //   setError("All fields are required!");
+    //   return;
+    // }
 
     setError("");
     console.log("Form Submitted:", formData);
