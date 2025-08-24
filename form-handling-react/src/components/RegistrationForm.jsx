@@ -7,7 +7,7 @@ const RegistrationForm = () => {
     password: "",
   });
 
-  // Destructure the values from formData
+ 
   const { username, email, password } = formData;
 
   const [error, setErrors] = useState("");
