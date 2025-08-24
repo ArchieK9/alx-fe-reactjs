@@ -20,21 +20,25 @@ const RegistrationForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if(!email) return setError("Email is required");
-    if(!username) return setError("Username is required");
-    if(!password) return setError("Password is required");
+const handleSubmit = (e) => {
+  e.preventDefault();
 
-    // if (!username || !email || !password) {
-    //   setError("All fields are required!");
-    //   return;
-    // }
+  let newErrors = {};
 
-    setError("");
-    console.log("Form Submitted:", formData);
-    setFormData({ username: "", email: "", password: "" });
-  };
+  if (!formData.username) newErrors.username = "Username is required";
+  if (!formData.email) newErrors.email = "Email is required";
+  if (!formData.password) newErrors.password = "Password is required";
+
+  if (Object.keys(newErrors).length > 0) {
+    setError(newErrors);
+    return;
+  }
+
+  console.log("Form Submitted:", formData);
+  setFormData({ username: "", email: "", password: "" });
+  setError({});
+};
+
 
   return (
     <div>
