@@ -10,7 +10,7 @@ const RegistrationForm = () => {
   // Destructure the values from formData
   const { username, email, password } = formData;
 
-  const [error, setError] = useState("");
+  const [error, setErrors] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,13 +30,13 @@ const handleSubmit = (e) => {
   if (!password) newErrors.password = "Password is required";
 
   if (Object.keys(newErrors).length > 0) {
-    setError(newErrors);
+    setErrors(newErrors);
     return;
   }
 
   console.log("Form Submitted:", formData);
   setFormData({ username: "", email: "", password: "" });
-  setError({});
+  setErrors({});
 };
 
 
