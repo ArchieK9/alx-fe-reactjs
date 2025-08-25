@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 
-function Blog() {
+function BlogPost() {
   const { id } = useParams();
   return <h1>Blog Post ID: {id}</h1>;
 }
-export default Blog;
+export default BlogPost;
