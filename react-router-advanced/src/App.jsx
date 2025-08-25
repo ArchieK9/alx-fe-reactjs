@@ -12,6 +12,7 @@ const isAuthenticated = true;
 function App() {
 
   return (
+    <BrowserRouter>
     <div>
       <nav style={{ marginBottom: "1rem" }}>
         <Link to="/">Home</Link> |{" "}
@@ -36,6 +37,7 @@ function App() {
         <Route path="/blog/:id" element={<Blog />} />
       </Routes>
     </div> 
+    </BrowserRouter>
   )
 }
 
